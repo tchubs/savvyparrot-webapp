@@ -1,0 +1,38 @@
+{
+  "name": "pepiisland",
+  "title": "Adventures on Pepi's Island",
+  "version": "0.1.0",
+  "private": false,
+  "author": {
+    "name": "SavvyParrot.com"
+  },
+  "description": "",
+  "url": "http://github.com/savvyparrot/pepiisland",
+  "keywords": ["adventure", "pepi", "island"],
+  "contributors": [],
+  "scripts": {
+    "start": "NODE_ENV=local nodemon web.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "coffee-script": "1.6.3",
+    "express": "3.2.6",
+    "jade": "0.31.2",
+    "lactate": "0.13.12",
+    "nconf": "0.6.7",
+    "lineman": "0.8.2",
+    "grunt-angular-templates": "0.3.8",
+    "grunt-contrib-copy": "0.4.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/savvyparrot/pepiisland.git"
+  },
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": "~>0.10.x",
+    "npm": "~>1.2.x"
+  },
+  "main": "web.js"
+}

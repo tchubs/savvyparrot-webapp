@@ -1,0 +1,1 @@
+angular.module('underscore', []).factory '_', ['$window', (w) -> w._]

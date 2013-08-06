@@ -1,0 +1,1 @@
+angular.module('jquery', []).factory '$', ['$window', (w) -> w.$]
