@@ -1,3 +1,3 @@
-angular.module("app").controller('HomeCtrl', ['$rootScope','$scope', '$http', '$location', '$window', 'GitHub','cookie', ($rootScope, $scope, $http, $location, $window, github, cookie) ->
+angular.module("app").controller('HomeCtrl', ['$rootScope','$scope', '$http', '$location', '$window', ($rootScope, $scope, $http, $location, $window) ->
 
 ])
