@@ -27,7 +27,7 @@ app.set "view options", layout: false
 app.use express.logger()
 
 # Serve out of dist or generated, depending upon the environment.
-folder = "#{if isProductionMode() then 'dist' else 'dist'}"
+folder = "#{if isProductionMode() then 'dist' else 'generated'}"
 app.use "/font", lactate.static("#{__dirname}/#{folder}/img", "max age": "one week")
 app.use lactate.static "#{__dirname}/#{folder}", "max age": "one week"
 
@@ -47,16 +47,17 @@ app.all '*', (req, res, next) ->
 
 # Forward savvyparrot.herokuapp.com to www.savvyparrot.com
 # Notice that we use HTTP status 301 Moved Permanently (best for SEO purposes).
-#app.get "/*", (req, res, next) ->
-#    if req.headers.host.match(/^savvyparrot.herokuapp.com/)
+app.get "/*", (req, res, next) ->
+    if req.headers.host.match(/^savvyparrot.herokuapp.com/)
+      next()
 #      res.redirect("http://www.savvyparrot.com#{req.url}", 301)
-#    else
-#      next()
+    else
+      next()
 
 app.get "/*", (req, res, next) ->
   res.render "index",
     # Firefox appears to be having a problem with the minified JavaScript.
-    css: if isProductionMode() then "css/app.min.css?version=#{npm.version}" else "css/app.css?version=#{npm.version}"
-    js:  if isProductionMode() then "js/app.min.js?version=#{npm.version}" else "js/app.js?version=#{npm.version}"
+    css: if isProductionMode() then "/css/app.min.css?version=#{npm.version}" else "/css/app.css?version=#{npm.version}"
+    js:  if isProductionMode() then "/js/app.min.js?version=#{npm.version}" else "/js/app.js?version=#{npm.version}"
     marketing: marketing
     npm: npm
