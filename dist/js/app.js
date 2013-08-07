@@ -43857,55 +43857,7 @@ return parser;
 }).call(this);
 
 (function() {
-  angular.module("app").controller('HomeCtrl', [
-    '$rootScope', '$scope', '$http', '$location', '$window', 'GitHub', 'cookie', function($rootScope, $scope, $http, $location, $window, github, cookie) {
-      var EVENT_CATEGORY, GATEKEEPER_DOMAIN, GITHUB_LOGIN_COOKIE_NAME, GITHUB_TOKEN_COOKIE_NAME, code, match;
-      EVENT_CATEGORY = "home";
-      ga('create', 'UA-41504069-1', 'geometryzen.org');
-      ga('set', 'page', '/home');
-      ga('send', 'pageview');
-      GATEKEEPER_DOMAIN = "" + ($location.protocol()) + "://" + ($location.host()) + ":" + ($location.port());
-      GITHUB_TOKEN_COOKIE_NAME = 'github-token';
-      GITHUB_LOGIN_COOKIE_NAME = 'github-login';
-      match = $window.location.href.match(/\?code=([a-z0-9]*)/);
-      if (match) {
-        $location.search({});
-        code = match[1];
-        $http.get("" + GATEKEEPER_DOMAIN + "/authenticate/" + code).success(function(data, status, headers, config) {
-          var token;
-          token = data.token;
-          cookie.setItem(GITHUB_TOKEN_COOKIE_NAME, token);
-          github.getUser(token, function(error, user) {
-            if (!error) {
-              cookie.setItem(GITHUB_LOGIN_COOKIE_NAME, user.login);
-            } else {
-              alert("Error retrieving your user login!");
-            }
-          });
-        }).error(function(data, status, headers, config) {
-          alert("Something is rotten in Denmark.");
-        });
-      }
-      match = $window.location.href.match(/\?error=access_denied/);
-      if (match) {
-        $location.search({});
-      }
-      $scope.work = function() {
-        ga('send', 'event', EVENT_CATEGORY, 'work');
-        $location.path("/work");
-      };
-      $scope.browse = function() {
-        ga('send', 'event', EVENT_CATEGORY, 'browse');
-        $location.path("/browse");
-      };
-      return $scope.user = function() {
-        var path;
-        ga('send', 'event', EVENT_CATEGORY, 'user');
-        path = "/users/" + ($scope.userLogin());
-        $location.path(path);
-      };
-    }
-  ]);
+  angular.module("app").controller('HomeCtrl', ['$rootScope', '$scope', '$http', '$location', '$window', 'GitHub', 'cookie', function($rootScope, $scope, $http, $location, $window, github, cookie) {}]);
 
 }).call(this);
 
@@ -44456,6 +44408,7 @@ angular.module("app").run(["$templateCache", function($templateCache) {
     "\n" +
     "  <div class=\"container-fluid\">\n" +
     "    <div class=\"row-fluid\">\n" +
+    "      <p>Welcome to Pepi's Island from the Home View</p>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n"
