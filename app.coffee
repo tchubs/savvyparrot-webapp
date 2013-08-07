@@ -56,7 +56,7 @@ app.all '*', (req, res, next) ->
 app.get "/*", (req, res, next) ->
   res.render "index",
     # Firefox appears to be having a problem with the minified JavaScript.
-    css: if isProductionMode() then "/css/app.css?version=#{npm.version}" else "/css/app.css?version=#{npm.version}"
-    js:  if isProductionMode() then "/js/app.js?version=#{npm.version}" else "/js/app.js?version=#{npm.version}"
+    css: if isProductionMode() then "css/app.css?version=#{npm.version}" else "css/app.css?version=#{npm.version}"
+    js:  if isProductionMode() then "js/app.js?version=#{npm.version}" else "js/app.js?version=#{npm.version}"
     marketing: marketing
     npm: npm
