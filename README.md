@@ -1,16 +1,39 @@
-webapp
-======
+# webapp
 
 Web Application for SavvyParrot.com website.
 
-git clone ...
+## Getting Started
 
-npm install
+### Single-User Development
 
-bower install
+  ```sh
+  $ git clone git@github.com:savvyparrot/webapp.git
+  ```
 
-lineman clean
+  ```sh
+  $ npm install
+  ```
 
-lineman build
+  ```sh
+  $ bower install
+  ```
 
-lineman run
+  ```sh
+  $ lineman clean
+  ```
+
+  ```sh
+  $ lineman build
+  ```
+
+  ```sh
+  $ lineman run
+  ```
+
+  ```sh
+  $ npm start
+  ```
+
+### Multi-User Development
+
+TODO
