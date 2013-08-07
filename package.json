@@ -1,5 +1,5 @@
 {
-  "name": "pepiisland",
+  "name": "savvyparrot",
   "title": "Adventures on Pepi's Island",
   "version": "0.1.0",
   "private": false,
@@ -7,7 +7,7 @@
     "name": "SavvyParrot.com"
   },
   "description": "",
-  "url": "http://github.com/savvyparrot/pepiisland",
+  "url": "http://github.com/savvyparrot/webapp",
   "keywords": ["adventure", "pepi", "island"],
   "contributors": [],
   "scripts": {
@@ -27,7 +27,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/savvyparrot/pepiisland.git"
+    "url": "https://github.com/savvyparrot/webapp.git"
   },
   "readmeFilename": "README.md",
   "engines": {

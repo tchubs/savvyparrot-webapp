@@ -47,11 +47,11 @@ app.all '*', (req, res, next) ->
 
 # Forward savvyparrot.herokuapp.com to www.savvyparrot.com
 # Notice that we use HTTP status 301 Moved Permanently (best for SEO purposes).
-app.get "/*", (req, res, next) ->
-    if req.headers.host.match(/^savvyparrot.herokuapp.com/)
-      res.redirect("http://www.savvyparrot.com#{req.url}", 301)
-    else
-      next()
+#app.get "/*", (req, res, next) ->
+#    if req.headers.host.match(/^savvyparrot.herokuapp.com/)
+#      res.redirect("http://www.savvyparrot.com#{req.url}", 301)
+#    else
+#      next()
 
 app.get "/*", (req, res, next) ->
   res.render "index",

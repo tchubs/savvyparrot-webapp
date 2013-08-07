@@ -1,5 +1,5 @@
 {
-  "name": "pepiisland",
+  "name": "savvyparrot",
   "version": "0.1.0",
   "main": "./app/js/main.js",
   "description": ".",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/savvyparrot/pepiisland.git"
+    "url": "git://github.com/savvyparrot/webapp.git"
   },
   "bugs": {
-    "url": "https://github.com/savvyparrot/pepiisland/issues"
+    "url": "https://github.com/savvyparrot/webapp/issues"
   },
   "licenses": [
     {
       "type": "???",
-      "url": "https://github.com/savvyparrot/pepiisland/LICENSE"
+      "url": "https://github.com/savvyparrot/webapp/LICENSE"
     }
   ],
   "dependencies": {

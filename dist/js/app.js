@@ -43860,7 +43860,6 @@ return parser;
   angular.module("app").controller('HomeCtrl', [
     '$rootScope', '$scope', '$http', '$location', '$window', 'GitHub', 'cookie', function($rootScope, $scope, $http, $location, $window, github, cookie) {
       var EVENT_CATEGORY, GATEKEEPER_DOMAIN, GITHUB_LOGIN_COOKIE_NAME, GITHUB_TOKEN_COOKIE_NAME, code, match;
-
       EVENT_CATEGORY = "home";
       ga('create', 'UA-41504069-1', 'geometryzen.org');
       ga('set', 'page', '/home');
@@ -43874,7 +43873,6 @@ return parser;
         code = match[1];
         $http.get("" + GATEKEEPER_DOMAIN + "/authenticate/" + code).success(function(data, status, headers, config) {
           var token;
-
           token = data.token;
           cookie.setItem(GITHUB_TOKEN_COOKIE_NAME, token);
           github.getUser(token, function(error, user) {
@@ -43902,7 +43900,6 @@ return parser;
       };
       return $scope.user = function() {
         var path;
-
         ga('send', 'event', EVENT_CATEGORY, 'user');
         path = "/users/" + ($scope.userLogin());
         $location.path(path);
@@ -43978,7 +43975,6 @@ return parser;
 
   _utf8_decode = function(utftext) {
     var c, c1, c2, c3, i, string;
-
     string = "";
     i = 0;
     c = c1 = c2 = 0;
@@ -44003,7 +43999,6 @@ return parser;
 
   _utf8_encode = function(string) {
     var c, n, utftext, _i, _ref;
-
     string = string.replace(/\r\n/g, "\n");
     utftext = "";
     for (n = _i = 0, _ref = string.length - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; n = 0 <= _ref ? ++_i : --_i) {
@@ -44027,7 +44022,6 @@ return parser;
       return {
         decode: function(input) {
           var chr1, chr2, chr3, enc1, enc2, enc3, enc4, i, output;
-
           output = "";
           i = 0;
           input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
@@ -44052,7 +44046,6 @@ return parser;
         },
         encode: function(input) {
           var chr1, chr2, chr3, enc1, enc2, enc3, enc4, i, output;
-
           output = "";
           i = 0;
           input = _utf8_encode(input);
@@ -44083,7 +44076,6 @@ return parser;
   angular.module("app").factory('GitHub', [
     '$http', function($http) {
       var GITHUB_DOMAIN, GITHUB_PROTOCOL, HTTP_METHOD_DELETE, HTTP_METHOD_GET, HTTP_METHOD_POST, HTTP_METHOD_PUT, Repo, User;
-
       GITHUB_PROTOCOL = 'https';
       GITHUB_DOMAIN = 'api.github.com';
       HTTP_METHOD_DELETE = 'DELETE';
@@ -44113,7 +44105,6 @@ return parser;
       return {
         getUser: function(token, done) {
           var headers;
-
           headers = token ? {
             "Authorization": "token " + token
           } : {};
@@ -44129,7 +44120,6 @@ return parser;
         },
         getUserRepos: function(token, done) {
           var headers;
-
           headers = token ? {
             "Authorization": "token " + token
           } : {};
@@ -44148,7 +44138,6 @@ return parser;
         },
         getRepoContents: function(token, user, repo, done) {
           var url;
-
           url = "" + GITHUB_PROTOCOL + "://" + GITHUB_DOMAIN + "/repos/" + user + "/" + repo + "/contents";
           return $http({
             "method": HTTP_METHOD_GET,
@@ -44164,7 +44153,6 @@ return parser;
         },
         getPathContents: function(token, user, repo, path, done) {
           var headers, url;
-
           url = "" + GITHUB_PROTOCOL + "://" + GITHUB_DOMAIN + "/repos/" + user + "/" + repo + "/contents";
           if (path) {
             url = "" + url + "/" + path;
@@ -44191,7 +44179,6 @@ return parser;
 
         putFile: function(token, owner, repo, path, message, content, sha, done) {
           var data, headers, url;
-
           url = "" + GITHUB_PROTOCOL + "://" + GITHUB_DOMAIN + "/repos/" + owner + "/" + repo + "/contents/" + path;
           data = {
             message: message,
@@ -44216,7 +44203,6 @@ return parser;
         },
         deleteFile: function(token, owner, repo, path, message, sha, done) {
           var data, url;
-
           url = "" + GITHUB_PROTOCOL + "://" + GITHUB_DOMAIN + "/repos/" + owner + "/" + repo + "/contents/" + path;
           data = {
             message: message,
@@ -44237,7 +44223,6 @@ return parser;
         },
         postRepo: function(token, name, description, priv, autoInit, done) {
           var data, headers, url;
-
           url = "" + GITHUB_PROTOCOL + "://" + GITHUB_DOMAIN + "/user/repos";
           data = {
             name: name,
@@ -44297,13 +44282,11 @@ Syntaxes:
       return {
         getItem: function(name) {
           var escapedName;
-
           escapedName = escape(name).replace(/[\-\.\+\*]/g, "\\$&");
           return unescape(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + escapedName + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
         },
         setItem: function(name, value, end, path, domain, secure) {
           var cookie, expires;
-
           if (!name || /^(?:expires|max\-age|path|domain|secure)$/i.test(name)) {
             throw new Error("Illegal name");
           }
