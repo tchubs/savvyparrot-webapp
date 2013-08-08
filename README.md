@@ -7,7 +7,7 @@ Web Application for SavvyParrot.com website.
 ### Single-User Development
 
   ```sh
-  $ git clone git@github.com:savvyparrot/webapp.git
+  $ git clone git@github.com:tchubs/savvyparrot-webapp.git
   ```
 
   ```sh
