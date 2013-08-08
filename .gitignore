@@ -20,3 +20,6 @@ config.json
 # Be sure that we have only one variables.less
 vendor/bootstrap/less/variables.less
 
+/nbproject/private/
+/dist/
+/nbproject/
